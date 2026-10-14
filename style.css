@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@500;700;800&display=swap');
+
+:root {
+  --pink: #f5a9c8;
+  --ink: #56446b;
+  --lav: #b7a2d9;
+  --cream: #fff5e9;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: linear-gradient(135deg,#fce8f3,#e9e6ff 55%,#dff2e4);
+  font-family: Nunito,system-ui,sans-serif;
+  color: var(--ink);
+}
+
+button { font: inherit; cursor: pointer; }
+#app { max-width: 1050px; margin: auto; padding: 16px; }
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+h1 {
+  font-family: 'Press Start 2P',monospace;
+  font-size: clamp(13px,2vw,20px);
+  margin: 8px 0;
+  color: #9c628e;
+}
+
+small { font-weight: 800; }
+
+.pill,.btn {
+  border: 2px solid #b78cba;
+  background: #fff9fc;
+  border-radius: 10px;
+  padding: 9px 12px;
+  color: #77517e;
+  box-shadow: 0 3px 0 #cba8ca;
+  font-weight: 800;
+}
+
+.btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #cba8ca;
+}
+
+.topBtns { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.shell {
+  background: #fff9f7;
+  border: 5px solid #fff;
+  border-radius: 18px;
+  box-shadow: 0 14px 40px #92759c45;
+  padding: 9px;
+}
+
+.screen {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #b7d9a0;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+  outline: none;
+}
+
+.hud {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  pointer-events: none;
+}
+
+.hud span {
+  background: #fff7eced;
+  border: 2px solid #c69cb5;
+  border-radius: 8px;
+  padding: 5px 8px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.dialog {
+  position: absolute;
+  bottom: 12px;
+  left: 4%;
+  width: 92%;
+  background: #fff9ef;
+  border: 4px solid #ad8eb7;
+  box-shadow: 0 5px 0 #705c82;
+  padding: 12px 15px;
+  border-radius: 10px;
+  min-height: 105px;
+  display: none;
+  z-index: 3;
+}
+
+.dialog strong {
+  font-family: 'Press Start 2P',monospace;
+  font-size: 10px;
+  color: #aa6d9e;
+  line-height: 1.6;
+}
+
+.dialog p {
+  margin: 7px 0 3px;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.dialog .hint {
+  font-size: 11px;
+  color: #a1839d;
+  text-align: right;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: #59496699;
+  display: grid;
+  place-items: center;
+  z-index: 4;
+  padding: 20px;
+}
+
+.panel {
+  width: min(520px,100%);
+  max-height: 90%;
+  overflow: auto;
+  background: #fff8f3;
+  border: 5px solid #bba1cc;
+  box-shadow: 0 8px 0 #786189;
+  border-radius: 15px;
+  padding: 24px;
+  text-align: center;
+}
+
+.panel h2 {
+  font-family: 'Press Start 2P',monospace;
+  color: #a9689a;
+  font-size: clamp(14px,2vw,20px);
+  line-height: 1.7;
+}
+
+.panel p { line-height: 1.5; }
+.panel .btn { margin: 8px; }
+.hidden { display: none !important; }
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(3,55px);
+  gap: 5px;
+  user-select: none;
+  touch-action: none;
+}
+
+.controls button {
+  height: 48px;
+  border: 2px solid #b78cba;
+  border-radius: 10px;
+  background: #fff9fc;
+  color: #77517e;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.controls .empty { visibility: hidden; }
+
+.instructions {
+  flex: 1;
+  min-width: 200px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.status { font-weight: 800; }
+
+.journal {
+  position: fixed;
+  inset: 0;
+  background: #554465a8;
+  z-index: 8;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+}
+
+.journal .panel { text-align: left; }
+.journal h2 { text-align: center; }
+
+.quest {
+  padding: 10px;
+  border-bottom: 1px solid #e8d8e6;
+}
+
+.quest.done { color: #648a66; }
+
+.footer {
+  text-align: center;
+  margin-top: 14px;
+  font-size: 12px;
+  color: #886d93;
+}
+
+#toast {
+  position: absolute;
+  top: 55px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff6d9;
+  border: 2px solid #caa9a2;
+  border-radius: 8px;
+  padding: 9px 14px;
+  display: none;
+  max-width: 90%;
+  text-align: center;
+  font-weight: 800;
+  z-index: 5;
+}
+
+@media(max-width:600px) {
+  #app { padding: 8px; }
+  .shell { padding: 5px; }
+  .dialog { min-height: 100px; bottom: 5px; padding: 8px; }
+  .dialog p { font-size: 12px; }
+  .hud span { font-size: 10px; }
+  .bottom { justify-content: center; }
+  .instructions { order: -1; flex-basis: 100%; }
+  .controls { grid-template-columns: repeat(3,54px); }
+}

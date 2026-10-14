@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>GREG.EXE ♡ Little Heart Valley</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+<header>
+<div>
+<h1>🌸 GREG.EXE</h1>
+<small>A LITTLE SIDE QUEST · SPRING 01 · THE BLUSHING BEAN v0.5</small>
+</div>
+<div class="topBtns">
+<button class="btn" id="journalBtn">📖 Quests</button>
+<button class="btn" id="resetBtn">↻ Reset</button>
+</div>
+</header>
+<div class="shell">
+<div class="screen">
+<canvas id="game" width="800" height="480" tabindex="0"
+aria-label="Little Heart Valley pixel game"></canvas>
+<div class="hud">
+<span id="hearts">💗 0 / 3</span>
+<span id="inventory">🎒 0 items</span>
+</div>
+<div id="toast"></div>
+<div class="dialog" id="dialog" role="status">
+<strong id="speaker"></strong>
+<p id="speech"></p>
+<div class="hint">E / SPACE / TAP TO CONTINUE ▼</div>
+</div>
+<div class="overlay" id="welcome">
+<div class="panel">
+<h2>WELCOME, GREG! ♡</h2>
+<p>You've been selected for a highly classified side quest.</p>
+<p>Explore Little Heart Valley, meet the locals, and find three missing heart fragments.</p>
+<p><b>Warning:</b> The developer has questionable humor.</p>
+<button class="btn" id="startBtn">▶ START GAME</button>
+<p style="font-size:12px">WASD / arrow keys to move · E or Space to interact · touch controls below</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bottom">
+<div class="controls" aria-label="Touch movement controls">
+<div class="empty"></div>
+<button data-dir="up" aria-label="Move up">↑</button>
+<div class="empty"></div>
+<button data-dir="left" aria-label="Move left">←</button>
+<button id="interactBtn" aria-label="Interact">✦</button>
+<button data-dir="right" aria-label="Move right">→</button>
+<div class="empty"></div>
+<button data-dir="down" aria-label="Move down">↓</button>
+<div class="empty"></div>
+</div>
+<div class="instructions">
+<div class="status" id="objective">Find the three heart fragments!</div>
+<div>Walk up to villagers, flowers, buildings, or interesting objects and press <b>E</b> or <b>✦</b>.</div>
+</div>
+<button class="btn" id="hintBtn">💌 Hint</button>
+</div>
+<div class="footer">Made with a little bit of code and a suspicious amount of affection ♡</div>
+</div>
+<div id="journal" class="journal hidden">
+<div class="panel">
+<h2>GREG'S QUEST JOURNAL</h2>
+<div id="questList"></div>
+<p style="font-size:12px">More optional quests are coming in future updates 🌸</p>
+<button class="btn" id="closeJournal">Close journal</button>
+</div>
+</div>
+<script src="game.js"></script>
+</body>
+</html>
